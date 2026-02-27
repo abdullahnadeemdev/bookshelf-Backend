@@ -1,200 +1,24 @@
-import AfterDark from "../assets/images/Murakami.png";
-import Norman from "../assets/images/dNorman.png";
-import BeyondTheSun from "../assets/images/beyondTheSun.png";
-import Godfather from "../assets/images/godfather.jpeg";
-import IAmErik from "../assets/images/IAmErik.png";
-import Master from "../assets/images/master.png";
-import Ness from "../assets/images/ness.png";
-import Memoirs from "../assets/images/memoirs.png";
+const fs = require("fs");
 
-import Fyodor from "../assets/images/Fyodor-Dostoyevskiy.jpg";
-import Erik from "../assets/images/Erik-Spiekermann.png";
-import Zola from "../assets/images/ZolaNeale.jpg";
-import Don from "../assets/images/Don-Norman.jpg";
-import JK from "../assets/images/JK-Rowling.jpg";
-import Matthew from "../assets/images/Matthew-Carter.jpg";
-import Mikhail from "../assets/images/Mikhail-Bulgakov.jpg";
-
-import Geo from "../assets/images/Geo.png";
-import Lisa from "../assets/images/Lisa.png";
-import Anne from "../assets/images/Anne.png";
-import Flo from "../assets/images/Flo.png";
-
-export const isLoginT = "loginT";
-export const isLoginF = "loginF";
-
-export const addItemsToCart = "addItemsToCart";
-export const removeItemsFromCart = "removeItemsFromCart";
-export const addItemsDuplicate = "addItemsDuplicate";
-
-export const addBooksToCart = "addBooksToCart";
-export const removeBooksFromCart = "removeBooksFromCart";
-export const addBooksDuplicate = "addBooksDuplicate";
-
-export const menuArr = [
-  "Books",
-  "Authors",
-  "What to Read?",
-  "Gift Ideas",
-  "About Us",
-];
-
-export const ArrayBestSellers = [
+// Your current array with variable names (the "bad" data)
+const rawData = [
   {
-    id: "0001",
-    image: AfterDark,
+    id: "0009",
     author: "Murakami",
     title: "After Dark",
     comments: 5,
-    star: 4.0,
     people: 100,
     price: "$15.5",
-    salePrice: "10.50",
-  },
-
-  {
-    image: Godfather,
-    id: "0002",
-    author: "Mario Puzo",
-    title: "The Godfather",
-    comments: 15,
-    star: 4.9,
-    people: 85,
-    salePrice: "14.50",
+    saleP: "$10.50",
+    type: "novel",
+    publishDate: "May 2007",
+    language: "English",
+    pages: 208,
+    readTime: "4-6 hours",
+    cover: "Hardcover",
+    publisher: "Rib Knits",
   },
   {
-    image: BeyondTheSun,
-    id: "0003",
-    author: "Daniel Cargallo",
-    title: "She Beyond Sun",
-    comments: 14,
-    star: 4.6,
-    people: 165,
-    price: "$19.50",
-    salePrice: "15.00",
-  },
-  {
-    image: IAmErik,
-    id: "0004",
-    author: "Erik Spiekermann",
-    title: "Hello I am Erik",
-    comments: 25,
-    star: 4.5,
-    people: 120,
-    price: "@15.50",
-    salePrice: "10.50",
-  },
-  {
-    image: Ness,
-    id: "0005",
-    author: "Patrick Ness",
-    title: "More Than This",
-    comments: 42,
-    star: 4.4,
-    people: 48,
-    salePrice: "20.00",
-  },
-  {
-    image: Memoirs,
-    id: "0006",
-    author: "C.R. Brunt",
-    title: "From the Memoirs of a Non-Enemy",
-    comments: 25,
-    star: 4.5,
-    people: 120,
-    salePrice: "16.50",
-  },
-  { title: "SEE ALL" },
-  {
-    image: Master,
-    id: "0007",
-    author: "Mikhail Bulgakov",
-    title: "The Master & Margarita",
-    comments: 35,
-    star: 4.3,
-    people: 30,
-    salePrice: "10.50",
-  },
-  {
-    image: Norman,
-    id: "0008",
-    author: "Donald Norman",
-    title: "The Design of Everyday Things",
-    comments: 28,
-    star: 4.2,
-    people: 20,
-    salePrice: "9.50",
-  },
-];
-
-export const authorsArray = [
-  {
-    image: Fyodor,
-    author: "Fyodor Dostoyevskiy",
-    book: "20 books",
-  },
-  {
-    image: Erik,
-    author: "Erik Spiekermann",
-    book: "5 books",
-  },
-  {
-    image: Zola,
-    author: "Zola Neale Hurston",
-    book: "16 books",
-  },
-  {
-    image: Zola,
-    author: "Toni Morrison",
-    book: "11 books",
-  },
-  {
-    image: Don,
-    author: "Walter Isaacson",
-    book: "12 books",
-  },
-  {
-    image: JK,
-    author: "Stephen King",
-    book: "65 books",
-  },
-  {
-    image: Matthew,
-    author: "Malcolm Gladwell",
-    book: "7 books",
-  },
-  {
-    image: Mikhail,
-    author: "Leo Tolstoy",
-    book: "48 books",
-  },
-  { author: "SEE ALL" },
-  {
-    image: Don,
-    author: "Don Norman",
-    book: "6 books",
-  },
-  {
-    image: JK,
-    author: "JK Rowling",
-    book: "16 books",
-  },
-  {
-    image: Matthew,
-    author: "Matthew Carter",
-    book: "3 books",
-  },
-  {
-    image: Mikhail,
-    author: "Mikhail Bulgakov",
-    book: "24 books",
-  },
-];
-
-export const ArrayProducts = [
-  {
-    image: AfterDark,
-    id: "0009",
     author: "Murakami",
     title: "After Dark",
     comments: 5,
@@ -211,8 +35,6 @@ export const ArrayProducts = [
     publisher: "Rib Knits",
   },
   {
-    image: Godfather,
-    id: "0010",
     author: "Mario Puzo",
     title: "The Godfather",
     comments: 15,
@@ -228,8 +50,6 @@ export const ArrayProducts = [
     publisher: "Rib Knits",
   },
   {
-    image: BeyondTheSun,
-    id: "0011",
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
     comments: 14,
@@ -246,8 +66,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
-    id: "0012",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -264,8 +82,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Ness,
-    id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
     comments: 42,
@@ -281,8 +97,6 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: IAmErik,
-    id: "0014",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -299,8 +113,6 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: Ness,
-    id: "0015",
     author: "Patrick Ness",
     title: "More Than This",
     comments: 42,
@@ -316,8 +128,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Memoirs,
-    id: "0016",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
     comments: 25,
@@ -333,8 +143,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Master,
-    id: "0017",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
     comments: 35,
@@ -350,8 +158,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Norman,
-    id: "0018",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
     comments: 28,
@@ -367,8 +173,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
-    id: "0019",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -385,8 +189,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Ness,
-    id: "0020",
     author: "Patrick Ness",
     title: "More Than This",
     comments: 42,
@@ -402,8 +204,6 @@ export const ArrayProducts = [
     publisher: "Double Knit",
   },
   {
-    image: IAmErik,
-    id: "0012",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -420,8 +220,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: AfterDark,
-    id: "BK-001",
     author: "Haruki Murakami",
     title: "After Dark (Standard)",
     comments: 12,
@@ -438,8 +236,6 @@ export const ArrayProducts = [
     publisher: "Vintage Books",
   },
   {
-    image: Godfather,
-    id: "BK-002",
     author: "Mario Puzo",
     title: "The Godfather: Legacy",
     comments: 85,
@@ -456,8 +252,6 @@ export const ArrayProducts = [
     publisher: "Putnam",
   },
   {
-    image: BeyondTheSun,
-    id: "BK-003",
     author: "D. Cargallo",
     title: "Beyond The Sun",
     comments: 22,
@@ -474,8 +268,6 @@ export const ArrayProducts = [
     publisher: "Galaxia",
   },
   {
-    image: IAmErik,
-    id: "BK-004",
     author: "Erik Spiekermann",
     title: "Typography Mastery",
     comments: 45,
@@ -492,8 +284,6 @@ export const ArrayProducts = [
     publisher: "Gestalten",
   },
   {
-    image: Ness,
-    id: "BK-005",
     author: "Patrick Ness",
     title: "The Chaos Walking",
     comments: 104,
@@ -510,8 +300,6 @@ export const ArrayProducts = [
     publisher: "Walker Books",
   },
   {
-    image: Memoirs,
-    id: "BK-006",
     author: "C.R. Brunt",
     title: "The Non-Enemy Memoirs",
     comments: 8,
@@ -528,8 +316,6 @@ export const ArrayProducts = [
     publisher: "Siberian Press",
   },
   {
-    image: Master,
-    id: "BK-007",
     author: "M. Bulgakov",
     title: "Margarita's Secret",
     comments: 67,
@@ -546,8 +332,6 @@ export const ArrayProducts = [
     publisher: "YMCA Press",
   },
   {
-    image: Norman,
-    id: "BK-008",
     author: "Don Norman",
     title: "Psychology of Objects",
     comments: 200,
@@ -565,8 +349,6 @@ export const ArrayProducts = [
   },
   // REPEATING IMAGES WITH NEW DATA
   {
-    image: AfterDark,
-    id: "BK-009",
     author: "H. Murakami",
     title: "After Dark: Special Ed.",
     comments: 3,
@@ -583,8 +365,6 @@ export const ArrayProducts = [
     publisher: "Shinchosha",
   },
   {
-    image: Godfather,
-    id: "BK-010",
     author: "Mario Puzo",
     title: "The Sicilian Connection",
     comments: 12,
@@ -601,8 +381,6 @@ export const ArrayProducts = [
     publisher: "Random House",
   },
   {
-    image: Ness,
-    id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
     price: "$14",
@@ -619,8 +397,6 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: IAmErik,
-    id: "0014",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -637,8 +413,6 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: Ness,
-    id: "0015",
     author: "Patrick Ness",
     title: "More Than This",
     comments: 42,
@@ -654,8 +428,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Memoirs,
-    id: "0016",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
     comments: 25,
@@ -671,8 +443,6 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Master,
-    id: "0017",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
     comments: 35,
@@ -688,8 +458,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Norman,
-    id: "0018",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
     comments: 28,
@@ -705,8 +473,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
-    id: "0019",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
     comments: 25,
@@ -723,8 +489,6 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Ness,
-    id: "0020",
     author: "Patrick Ness",
     title: "More Than This",
     comments: 42,
@@ -739,123 +503,27 @@ export const ArrayProducts = [
     cover: "Softcover",
     publisher: "Double Knit",
   },
+
+  // ... add your other objects here
 ];
 
-export const suggestionArray = [
-  {
-    image: AfterDark,
-    author: "Murakami",
-    title: "After Dark",
-  },
-  {
-    image: Godfather,
-    author: "Mario Puzo",
-    title: "The Godfather",
-  },
-  {
-    image: BeyondTheSun,
-    author: "Daniel Cargallo",
-    title: "She Beyond Sun",
-  },
-  {
-    image: IAmErik,
-    author: "Erik Spiekermann",
-    title: "Hello I am Erik",
-  },
-  {
-    image: Ness,
-    author: "Patrick Ness",
-    title: "More Than This",
-  },
-  {
-    image: IAmErik,
-    author: "Erik Spiekermann",
-    title: "Hello I am Erik",
-  },
-];
+const cleanedData = rawData.flat().map((book) => ({
+  title: book.title || "Unknown Title",
+  title: book.title || "Unknown Title",
+  author: book.author || "Unknown Author",
+  price: String(book.price || book.saleP), // Ensure it's a string
+  saleP: String(book.saleP),
+  type: book.type || "novel",
+  publishDate: String(book.publishDate),
+  language: book.language || "English",
+  readTime: book.readTime || "N/A",
+  cover: book.cover || "Softcover",
+  publisher: book.publisher || "Unknown Publisher",
+  pages: Number(book.pages) || 0, // Ensure it's a number
+  comments: Number(book.comments) || 0,
+  reviewNum: Number(book.star) || 0, // Mapping 'star' to 'reviewNum'
+  peopleReviewed: Number(book.people) || 0,
+}));
 
-export const customerReviewArray = [
-  {
-    image: Geo,
-    name: "Geoffrey Mott",
-    date: "11 october 2025",
-    rating: "4",
-    review:
-      "Muscle by Alan Trotter is a fresh piece of noir fiction. Our main characters are the two crooks Box and _____. They are on the hunt for odd jobs that most of us, hopefully, would not be willing to fulfill. It felt reminiscent of both A Clockwork Orange and The Time Machine. I guess that can seem like a strange combination, but Alan Trotter made it work.When Box and _____. encounter a private detective and this strange writer, events quickly start to unravel. Oh, and there is a girl of course! Ixsas",
-  },
-  {
-    image: Lisa,
-    name: "Lisa Anderson",
-    date: "11 november 2025",
-    rating: "2",
-    review:
-      "Oh I really disliked this in the end. What middling interest I had was completely lost by the fifth and last section.This is the story of two tough guys, goons for hire, as they pick up odd jobs roughing up guys, collecting debts and breaking hands. All written as a kind of Chandler pastiche, but possibly more of a parody.One of the goons, Box, passes the time reading sci-fi stories from pulp magazines an acquaintance writes for. Then, as the story progresses and the pair's jobs take a dark turn",
-  },
-  {
-    image: Anne,
-    name: "Anne Powell",
-    date: "12 october 2025",
-    rating: "3",
-    review:
-      "Read a great review in the Guardian and took a chance. I should have paid more attention to the comparison with The New York Trilogy, my least favourite Auster experience.This does noir tropes really well with women always called “twists” or “frails”, but I wasn’t really on board for the final section where it all gets a bit meta. I’m down for literary noir, but this was no Motherless Brooklyn.",
-  },
-  {
-    image: Flo,
-    name: "Florencio Dorrance",
-    date: "11 december 2025",
-    rating: "5",
-    review:
-      "This is fantastic, and could have been written just for me. Grimly funny absurdist-existentialist noir that incorporates pulp sci-fi as well as hardboiled crime fiction elements to become a surprisingly powerful examination of the lasting impact of male violence in its many forms.It also does one of my favourite things, which is to recount other fictional stories within its own pages, a Vonnegut-style technique I never seem to tire of. The ending, too, which some have complained about, I think works perfectly.Phenomenally entertaining and sneakily profound.",
-  },
-];
-
-export const id = () => {
-  const alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-
-  let id = "";
-  let check = false;
-  for (let i = 0; id.length < 8; i++) {
-    let element = Math.floor(Math.random() * 10);
-    if (!check) {
-      if (element % 2 !== 0) {
-        for (let i = 0; i < 3; i++) {
-          element = alphabet[Math.floor(Math.random() * 10)];
-          id += element;
-          if (i === 2) {
-            check = true;
-          }
-        }
-      }
-    } else {
-      id = id + String(+element);
-    }
-  }
-  return id;
-};
+fs.writeFileSync("CLEANED_DATA.json", JSON.stringify(cleanedData, null, 2));
+console.log("Data cleaned and saved to CLEANED_DATA.json");

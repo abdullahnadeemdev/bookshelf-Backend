@@ -2,69 +2,14 @@ const express = require("express");
 const app = express();
 PORT = 8000;
 const mongoose = require("mongoose");
+const bookRoutes = require("./routes/books");
+const { connectDB } = require("./connection");
 
-mongoose
-  .connect("mongodb://localhost:27017")
-  .then(console.log("Connected to mongoDb"))
+connectDB("mongodb://localhost:27017/BookshelfDb")
+  .then(() => console.log("Connected to mongoDb"))
   .catch((err) => console.log("database not available", err));
-
-const booksData = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: String,
-    required: true,
-  },
-  saleP: {
-    type: String,
-    required: true,
-  },
-  type: {
-    type: String,
-    required: true,
-  },
-  publishDate: {
-    type: String,
-    required: true,
-  },
-  language: {
-    type: String,
-    required: true,
-  },
-  readTime: {
-    type: String,
-    required: true,
-  },
-  cover: {
-    type: String,
-    required: true,
-  },
-  publisher: {
-    type: String,
-    required: true,
-  },
-  comments: {
-    type: Number,
-  },
-  reviewNum: {
-    type: Number,
-  },
-  peopleReviewed: {
-    type: Number,
-  },
-  pages: {
-    type: Number,
-    required: true,
-  },
-});
-
-const Books = mongoose.model("books", booksData);
+app.use(express.json());
+app.use("/products/books", bookRoutes);
 
 app.listen(PORT, (req, res) => {
   console.log("I am connected at ", PORT);
