@@ -36,15 +36,13 @@ const handleAddingBook = async (req, res) => {
 };
 
 const addAllBooks = async (req, res) => {
-  const allBooks = req.body; // Expecting an array here
+  const allBooks = req.body;
 
-  // 1. Validation: Ensure we actually received an array
   if (!Array.isArray(allBooks)) {
     return res.status(400).json({ msg: "Data must be an array of books" });
   }
 
   try {
-    // 2. Bulk Insert: This sends all books to MongoDB in a single command
     const result = await Books.insertMany(allBooks);
 
     return res.status(201).json({

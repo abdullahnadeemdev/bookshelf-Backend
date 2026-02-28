@@ -4,11 +4,11 @@ const {
   handleAddingBook,
   addAllBooks,
 } = require("../controllers/books");
+
 const router = express.Router();
 
+router.get("/", handleAllBooks);
 router.post("/", handleAddingBook);
 router.post("/all", addAllBooks);
-
-router.get("/", handleAllBooks);
 
 module.exports = router;

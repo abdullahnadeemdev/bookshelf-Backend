@@ -55,6 +55,7 @@ const booksData = new mongoose.Schema({
     required: true,
   },
 });
+// this defines the type of data in our books database
 
 const Books = mongoose.model("books", booksData);
 
