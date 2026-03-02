@@ -3,6 +3,7 @@ const app = express();
 PORT = 8000;
 const mongoose = require("mongoose");
 const bookRoutes = require("./routes/books");
+const authorRoutes = require("./routes/author");
 const { connectDB } = require("./connection");
 const cors = require("cors");
 
@@ -15,6 +16,7 @@ app.use(cors());
 app.use("/images", express.static("public/images"));
 
 app.use("/products/books", bookRoutes);
+app.use("/author", authorRoutes);
 
 app.listen(PORT, (req, res) => {
   console.log("I am connected at ", PORT);
