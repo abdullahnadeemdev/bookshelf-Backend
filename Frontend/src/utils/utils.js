@@ -1,11 +1,11 @@
-import AfterDark from "../assets/images/Murakami.png";
-import Norman from "../assets/images/dNorman.png";
-import BeyondTheSun from "../assets/images/beyondTheSun.png";
-import Godfather from "../assets/images/godfather.jpeg";
-import IAmErik from "../assets/images/IAmErik.png";
-import Master from "../assets/images/master.png";
-import Ness from "../assets/images/ness.png";
-import Memoirs from "../assets/images/memoirs.png";
+// import AfterDark from "../assets/images/Murakami.png";
+// import Norman from "../assets/images/dNorman.png";
+// import BeyondTheSun from "../assets/images/beyondTheSun.png";
+// import Godfather from "../assets/images/godfather.jpeg";
+// import IAmErik from "../assets/images/IAmErik.png";
+// import Master from "../assets/images/master.png";
+// import Ness from "../assets/images/ness.png";
+// import Memoirs from "../assets/images/memoirs.png";
 
 import Fyodor from "../assets/images/Fyodor-Dostoyevskiy.jpg";
 import Erik from "../assets/images/Erik-Spiekermann.png";
@@ -42,7 +42,7 @@ export const menuArr = [
 export const ArrayBestSellers = [
   {
     id: "0001",
-    image: AfterDark,
+    // image: AfterDark,
     author: "Murakami",
     title: "After Dark",
     comments: 5,
@@ -53,7 +53,7 @@ export const ArrayBestSellers = [
   },
 
   {
-    image: Godfather,
+    // image: Godfather,
     id: "0002",
     author: "Mario Puzo",
     title: "The Godfather",
@@ -63,7 +63,7 @@ export const ArrayBestSellers = [
     salePrice: "14.50",
   },
   {
-    image: BeyondTheSun,
+    // image: BeyondTheSun,
     id: "0003",
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
@@ -74,7 +74,7 @@ export const ArrayBestSellers = [
     salePrice: "15.00",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0004",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -85,7 +85,7 @@ export const ArrayBestSellers = [
     salePrice: "10.50",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0005",
     author: "Patrick Ness",
     title: "More Than This",
@@ -95,7 +95,7 @@ export const ArrayBestSellers = [
     salePrice: "20.00",
   },
   {
-    image: Memoirs,
+    // image: Memoirs,
     id: "0006",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
@@ -106,7 +106,7 @@ export const ArrayBestSellers = [
   },
   { title: "SEE ALL" },
   {
-    image: Master,
+    // image: Master,
     id: "0007",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
@@ -116,7 +116,7 @@ export const ArrayBestSellers = [
     salePrice: "10.50",
   },
   {
-    image: Norman,
+    // image: Norman,
     id: "0008",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
@@ -193,7 +193,7 @@ export const authorsArray = [
 
 export const ArrayProducts = [
   {
-    image: AfterDark,
+    // image: AfterDark,
     id: "0009",
     author: "Murakami",
     title: "After Dark",
@@ -211,7 +211,7 @@ export const ArrayProducts = [
     publisher: "Rib Knits",
   },
   {
-    image: Godfather,
+    // image: Godfather,
     id: "0010",
     author: "Mario Puzo",
     title: "The Godfather",
@@ -228,7 +228,7 @@ export const ArrayProducts = [
     publisher: "Rib Knits",
   },
   {
-    image: BeyondTheSun,
+    // image: BeyondTheSun,
     id: "0011",
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
@@ -246,7 +246,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0012",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -264,7 +264,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
@@ -281,7 +281,7 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0014",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -299,7 +299,7 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0015",
     author: "Patrick Ness",
     title: "More Than This",
@@ -316,7 +316,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Memoirs,
+    // image: Memoirs,
     id: "0016",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
@@ -333,7 +333,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Master,
+    // image: Master,
     id: "0017",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
@@ -350,7 +350,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Norman,
+    // image: Norman,
     id: "0018",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
@@ -367,7 +367,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0019",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -385,7 +385,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0020",
     author: "Patrick Ness",
     title: "More Than This",
@@ -402,7 +402,7 @@ export const ArrayProducts = [
     publisher: "Double Knit",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0012",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -420,7 +420,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: AfterDark,
+    // image: AfterDark,
     id: "BK-001",
     author: "Haruki Murakami",
     title: "After Dark (Standard)",
@@ -438,7 +438,7 @@ export const ArrayProducts = [
     publisher: "Vintage Books",
   },
   {
-    image: Godfather,
+    // image: Godfather,
     id: "BK-002",
     author: "Mario Puzo",
     title: "The Godfather: Legacy",
@@ -456,7 +456,7 @@ export const ArrayProducts = [
     publisher: "Putnam",
   },
   {
-    image: BeyondTheSun,
+    // image: BeyondTheSun,
     id: "BK-003",
     author: "D. Cargallo",
     title: "Beyond The Sun",
@@ -474,7 +474,7 @@ export const ArrayProducts = [
     publisher: "Galaxia",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "BK-004",
     author: "Erik Spiekermann",
     title: "Typography Mastery",
@@ -492,7 +492,7 @@ export const ArrayProducts = [
     publisher: "Gestalten",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "BK-005",
     author: "Patrick Ness",
     title: "The Chaos Walking",
@@ -510,7 +510,7 @@ export const ArrayProducts = [
     publisher: "Walker Books",
   },
   {
-    image: Memoirs,
+    // image: Memoirs,
     id: "BK-006",
     author: "C.R. Brunt",
     title: "The Non-Enemy Memoirs",
@@ -528,7 +528,7 @@ export const ArrayProducts = [
     publisher: "Siberian Press",
   },
   {
-    image: Master,
+    // image: Master,
     id: "BK-007",
     author: "M. Bulgakov",
     title: "Margarita's Secret",
@@ -546,7 +546,7 @@ export const ArrayProducts = [
     publisher: "YMCA Press",
   },
   {
-    image: Norman,
+    // image: Norman,
     id: "BK-008",
     author: "Don Norman",
     title: "Psychology of Objects",
@@ -565,7 +565,7 @@ export const ArrayProducts = [
   },
   // REPEATING IMAGES WITH NEW DATA
   {
-    image: AfterDark,
+    // image: AfterDark,
     id: "BK-009",
     author: "H. Murakami",
     title: "After Dark: Special Ed.",
@@ -583,7 +583,7 @@ export const ArrayProducts = [
     publisher: "Shinchosha",
   },
   {
-    image: Godfather,
+    // image: Godfather,
     id: "BK-010",
     author: "Mario Puzo",
     title: "The Sicilian Connection",
@@ -601,7 +601,7 @@ export const ArrayProducts = [
     publisher: "Random House",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0013",
     author: "Patrick Ness",
     title: "More Than This",
@@ -619,7 +619,7 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0014",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -637,7 +637,7 @@ export const ArrayProducts = [
     publisher: " Dotted Swiss",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0015",
     author: "Patrick Ness",
     title: "More Than This",
@@ -654,7 +654,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Memoirs,
+    // image: Memoirs,
     id: "0016",
     author: "C.R. Brunt",
     title: "From the Memoirs of a Non-Enemy",
@@ -671,7 +671,7 @@ export const ArrayProducts = [
     publisher: "Elasticized Fabrics",
   },
   {
-    image: Master,
+    // image: Master,
     id: "0017",
     author: "Mikhail Bulgakov",
     title: "The Master & Margarita",
@@ -688,7 +688,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Norman,
+    // image: Norman,
     id: "0018",
     author: "Donald Norman",
     title: "The Design of Everyday Things",
@@ -705,7 +705,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     id: "0019",
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
@@ -723,7 +723,7 @@ export const ArrayProducts = [
     publisher: "Panne Velvet",
   },
   {
-    image: Ness,
+    // image: Ness,
     id: "0020",
     author: "Patrick Ness",
     title: "More Than This",
@@ -743,32 +743,32 @@ export const ArrayProducts = [
 
 export const suggestionArray = [
   {
-    image: AfterDark,
+    // image: AfterDark,
     author: "Murakami",
     title: "After Dark",
   },
   {
-    image: Godfather,
+    // image: Godfather,
     author: "Mario Puzo",
     title: "The Godfather",
   },
   {
-    image: BeyondTheSun,
+    // image: BeyondTheSun,
     author: "Daniel Cargallo",
     title: "She Beyond Sun",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
   },
   {
-    image: Ness,
+    // image: Ness,
     author: "Patrick Ness",
     title: "More Than This",
   },
   {
-    image: IAmErik,
+    // image: IAmErik,
     author: "Erik Spiekermann",
     title: "Hello I am Erik",
   },

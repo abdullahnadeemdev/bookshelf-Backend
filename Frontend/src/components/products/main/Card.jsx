@@ -8,6 +8,10 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
+  const imageUrl =
+    props.image === "TheGodfather"
+      ? `http://localhost:8000/images/${props.image}.jpeg`
+      : `http://localhost:8000/images/${props.image}.png`;
   let user = useSelector((state) => state?.auth?.user) || undefined;
 
   if (user === undefined) {
@@ -21,7 +25,7 @@ const Card = (props) => {
 
   const book = {
     id: props.id,
-    image: props.image,
+    image: imageUrl,
     author: props.author,
     title: bookTitle,
     comments: props.comments,
@@ -63,7 +67,7 @@ const Card = (props) => {
       to={`/books/${bookTitle.replace(/\s+/g, "-")}`}
       className="bg-whiteBg p-2 lg:p-4 h-fit rounded-xl md:mt-4 max-w-[334px] max-h-[618px]"
       state={{
-        image: props.image,
+        image: imageUrl,
         id: props.id,
         author: props.author,
         title: bookTitle,
@@ -83,7 +87,7 @@ const Card = (props) => {
     >
       <div className="h-60 w-60 xs:h-40 xs:w-44 sm:h-40 sm:w-45 md:h-40 md:w-41.5 lg:h-[45vh] lg:w-[21vw] max-w-[302px] max-h-[429px] relative">
         <img
-          src={props.image}
+          src={imageUrl}
           className="h-full w-full object-fit lg:object-fit rounded-xl"
           alt=""
         />

@@ -72,6 +72,8 @@ const Main = () => {
     );
   });
 
+  console.log("array", array);
+
   const renderData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
