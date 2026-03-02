@@ -57,4 +57,23 @@ const addAllBooks = async (req, res) => {
   }
 };
 
-module.exports = { handleAllBooks, handleAddingBook, addAllBooks };
+const deleteAll = async (req, res) => {
+  try {
+    const result = await Books.deleteMany({});
+    console.log(result);
+    return res.json({
+      msg: "Database cleared successfully",
+      deletedCount: result.deletedCount, // This shows how many were removed
+    });
+  } catch (err) {
+    console.log("Error occurred in delete controller", err);
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+module.exports = {
+  handleAllBooks,
+  handleAddingBook,
+  addAllBooks,
+  deleteAll,
+};

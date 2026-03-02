@@ -1,10 +1,29 @@
 import FilterBar from "./filterBar";
 import SideBar from "./SideBar";
-import { ArrayProducts } from "../../../utils/utils";
+// import { arrayBooks } from "../../../utils/utils";
 import Card from "./Card";
 import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Main = () => {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  const getBooks = async () => {
+    let arrayBooks = [];
+    await axios
+      .get("http://localhost:8000/products/books")
+      .then((res) => {
+        arrayBooks = res.data;
+      })
+      .catch((err) => console.log("Error in products main", err));
+    setBooks(arrayBooks);
+  };
+
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
@@ -19,7 +38,7 @@ const Main = () => {
     ratingCheck: "",
   });
 
-  const array = ArrayProducts.filter((item) => {
+  const array = books.filter((item) => {
     const queryCheck = item.title.toLowerCase().includes(query.toLowerCase());
 
     const language =
@@ -38,7 +57,7 @@ const Main = () => {
     const star =
       filter.ratingCheck === "" ? true : item.star > filter.ratingCheck;
 
-    const itemPrice = parseFloat(item?.salePrice?.replace("$", ""));
+    const itemPrice = parseFloat(item?.saleP?.replace("$", ""));
     const [minPrice, maxPrice] = filter.price || [0, 120];
     const matchesPrice = itemPrice >= minPrice && itemPrice <= maxPrice;
 
@@ -63,15 +82,15 @@ const Main = () => {
         {currentItems.map((item, index) => (
           <Card
             key={index}
-            id={item.id}
+            id={item._id}
             image={item.image}
             author={item.author}
             title={item.title}
             comments={item.comments}
-            star={item.star}
-            people={item.people}
+            star={item.reviewNum}
+            people={item.peopleReviewed}
             price={item.price}
-            salePrice={item.salePrice}
+            salePrice={item.saleP}
             type={item.type}
             publishDate={item.publishDate}
             language={item.language}
