@@ -1,6 +1,17 @@
 import { BookmarkIcon } from "../../assets/icons/Index.js";
 
 const CardAuthor = (props) => {
+  const jpgAuthors = [
+    "ZolaNeale",
+    "Don-Norman",
+    "Fyodor-Dostoyevskiy",
+    "JK-Rowling",
+    "Matthew-Carter",
+    "Mikhail-Bulgakov",
+  ];
+
+  const extension = jpgAuthors.includes(props.image) ? "jpg" : "png";
+  const imageUrl = `http://localhost:8000/images/${props.image}.${extension}`;
   return (
     <>
       {props.author !== "SEE ALL" ? (
@@ -27,7 +38,7 @@ const CardAuthor = (props) => {
             "
           >
             <img
-              src={props.image}
+              src={imageUrl}
               alt=""
               className="
               object-cover
