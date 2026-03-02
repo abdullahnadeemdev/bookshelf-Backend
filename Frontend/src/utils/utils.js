@@ -7,14 +7,6 @@
 // import Ness from "../assets/images/ness.png";
 // import Memoirs from "../assets/images/memoirs.png";
 
-import Fyodor from "../assets/images/Fyodor-Dostoyevskiy.jpg";
-import Erik from "../assets/images/Erik-Spiekermann.png";
-import Zola from "../assets/images/ZolaNeale.jpg";
-import Don from "../assets/images/Don-Norman.jpg";
-import JK from "../assets/images/JK-Rowling.jpg";
-import Matthew from "../assets/images/Matthew-Carter.jpg";
-import Mikhail from "../assets/images/Mikhail-Bulgakov.jpg";
-
 import Geo from "../assets/images/Geo.png";
 import Lisa from "../assets/images/Lisa.png";
 import Anne from "../assets/images/Anne.png";
@@ -124,70 +116,6 @@ export const ArrayBestSellers = [
     star: 4.2,
     people: 20,
     salePrice: "9.50",
-  },
-];
-
-export const authorsArray = [
-  {
-    image: Fyodor,
-    author: "Fyodor Dostoyevskiy",
-    book: "20 books",
-  },
-  {
-    image: Erik,
-    author: "Erik Spiekermann",
-    book: "5 books",
-  },
-  {
-    image: Zola,
-    author: "Zola Neale Hurston",
-    book: "16 books",
-  },
-  {
-    image: Zola,
-    author: "Toni Morrison",
-    book: "11 books",
-  },
-  {
-    image: Don,
-    author: "Walter Isaacson",
-    book: "12 books",
-  },
-  {
-    image: JK,
-    author: "Stephen King",
-    book: "65 books",
-  },
-  {
-    image: Matthew,
-    author: "Malcolm Gladwell",
-    book: "7 books",
-  },
-  {
-    image: Mikhail,
-    author: "Leo Tolstoy",
-    book: "48 books",
-  },
-  { author: "SEE ALL" },
-  {
-    image: Don,
-    author: "Don Norman",
-    book: "6 books",
-  },
-  {
-    image: JK,
-    author: "JK Rowling",
-    book: "16 books",
-  },
-  {
-    image: Matthew,
-    author: "Matthew Carter",
-    book: "3 books",
-  },
-  {
-    image: Mikhail,
-    author: "Mikhail Bulgakov",
-    book: "24 books",
   },
 ];
 

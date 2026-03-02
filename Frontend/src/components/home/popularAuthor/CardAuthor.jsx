@@ -3,6 +3,18 @@ import { Bookmark } from "../../../assets/icons/Index.js";
 import { useState } from "react";
 
 const CardAuthor = (props) => {
+  const jpgAuthors = [
+    "ZolaNeale",
+    "Don-Norman",
+    "Fyodor-Dostoyevskiy",
+    "JK-Rowling",
+    "Matthew-Carter",
+    "Mikhail-Bulgakov",
+  ];
+
+  const extension = jpgAuthors.includes(props.image) ? "jpg" : "png";
+  const imageUrl = `http://localhost:8000/images/${props.image}.${extension}`;
+
   const navigate = useNavigate();
   const [clr, setClr] = useState("#2a2c2e");
 
@@ -49,7 +61,7 @@ const CardAuthor = (props) => {
             "
           >
             <img
-              src={props.image}
+              src={imageUrl}
               alt=""
               className="
               object-cover

@@ -1,8 +1,21 @@
-import { authorsArray } from "../../../utils/utils";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import CardAuthor from "./CardAuthor";
+import axios from "axios";
+
 const PopularAuthor = () => {
-  const array = useMemo(() => authorsArray.slice(1, 9));
+  const [author, setAuthor] = useState([]);
+
+  const getAuthors = async () => {
+    const authors = await axios
+      .get("http://localhost:8000/author/")
+      .then((res) => setAuthor(res.data))
+      .catch((err) => console.log("I occured at popularAuthor Home", err));
+  };
+
+  useEffect(() => {
+    getAuthors();
+  }, []);
+  const array = useMemo(() => author.slice(1, 9), [author]);
   return (
     <div className="h-fit  max-w-[1440px] px-0.5 mx-auto" id="authors">
       <h1 className="font-base text-xl sm:text-2xl lg:text-4xl py-10 pl-6">
