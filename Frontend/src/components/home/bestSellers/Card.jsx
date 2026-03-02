@@ -8,6 +8,10 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
+  const imageUrl =
+    props.image === "TheGodfather"
+      ? `http://localhost:8000/images/${props.image}.jpeg`
+      : `http://localhost:8000/images/${props.image}.png`;
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state?.auth?.user) || { email: "guest" };
@@ -59,7 +63,7 @@ const Card = (props) => {
             "
           >
             <img
-              src={props.image}
+              src={imageUrl}
               alt="AfterDark book"
               className="
                 object-cover
@@ -153,9 +157,7 @@ const Card = (props) => {
               <p className="text-sm md:text-lg text-gray-400 line-through">
                 {props.price}
               </p>
-              <p className="text-sm md:text-lg font-semibold">
-                {props.salePrice}
-              </p>
+              <p className="text-sm md:text-lg font-semibold">{props.saleP}</p>
             </span>
           </div>
         </div>

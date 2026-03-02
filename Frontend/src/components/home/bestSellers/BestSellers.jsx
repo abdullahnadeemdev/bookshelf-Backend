@@ -1,14 +1,28 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router";
 import Card from "./Card";
-import { ArrayProducts as array } from "../../../utils/utils";
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const BestSellers = () => {
+  const [books, setBooks] = useState([]);
   const navigate = useNavigate();
 
-  const booksToDisplay = useMemo(() => {
-    return array.slice(0, 8);
+  const getBooks = async () => {
+    await axios
+      .get("http://localhost:8000/products/books")
+      .then((res) => setBooks(res.data))
+      .catch((err) => console.log("I occured at bestsellers home", err));
+  };
+
+  useEffect(() => {
+    getBooks();
   }, []);
+  console.log("books", books);
+  const booksToDisplay = useMemo(() => {
+    return books.slice(0, 8);
+  }, [books]);
 
   return (
     <div className="h-fit py-10 max-w-[1430px] w-full px-4">
@@ -18,7 +32,7 @@ const BestSellers = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {booksToDisplay.map((item) => (
-          <Card key={item.id} {...item} />
+          <Card key={item._id} {...item} />
         ))}
 
         <div
