@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 PORT = 8000;
-const mongoose = require("mongoose");
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
 const { connectDB } = require("./connection");
