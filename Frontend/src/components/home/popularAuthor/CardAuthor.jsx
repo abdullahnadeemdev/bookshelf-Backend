@@ -12,8 +12,7 @@ const CardAuthor = (props) => {
     "Mikhail-Bulgakov",
   ];
 
-  const extension = jpgAuthors.includes(props.image) ? "jpg" : "png";
-  const imageUrl = `http://localhost:8000/images/${props.image}.${extension}`;
+  const imageUrl = `http://localhost:8000/images/${props.image}`;
 
   const navigate = useNavigate();
   const [clr, setClr] = useState("#2a2c2e");

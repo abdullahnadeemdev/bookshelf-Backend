@@ -1,0 +1,52 @@
+[
+  {
+    "author": "Mikhail Bulgakov",
+    "booksPublished": "22",
+    "image": "Mikhail-Bulgakov.jpg"
+  },
+  {
+    "author": "Don Norman",
+    "booksPublished": "57",
+    "image": "Don-Norman.jpg"
+  },
+  {
+    "author": "Erik Spiekermann",
+    "booksPublished": "7",
+    "image": "Erik-Spiekermann.png"
+  },
+  {
+    "author": "Fyodor Dostoyevsky",
+    "booksPublished": "5",
+    "image": "Fyodor-Dostoyevskiy.jpg"
+  },
+  {
+    "author": "Haruki Murakami",
+    "booksPublished": "6",
+    "image": "Murakami.png"
+  },
+  {
+    "author": "J.K. Rowling",
+    "booksPublished": "15",
+    "image": "JK-Rowling.jpg"
+  },
+  {
+    "author": "Zola Neale Hurston",
+    "booksPublished": "11",
+    "image": "ZolaNeale.jpg"
+  },
+  {
+    "author": "Walter Isaacson",
+    "booksPublished": "7",
+    "image": "Walter-Isaacson.jpg"
+  },
+  {
+    "author": "Stephen King",
+    "booksPublished": "19",
+    "image": "Stephen-King.jpg"
+  },
+  {
+    "author": "Anne",
+    "booksPublished": "25",
+    "image": "Anne.png"
+  }
+]

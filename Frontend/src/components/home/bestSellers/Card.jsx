@@ -8,10 +8,7 @@ import {
 } from "../../../redux/features/bookMarkSlice";
 
 const Card = (props) => {
-  const imageUrl =
-    props.image === "TheGodfather"
-      ? `http://localhost:8000/images/${props.image}.jpeg`
-      : `http://localhost:8000/images/${props.image}.png`;
+  const imageUrl = `http://localhost:8000/images/${props.image}`;
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state?.auth?.user) || { email: "guest" };
@@ -143,9 +140,9 @@ const Card = (props) => {
                 xl:mb-8
               "
             >
-              <p>{props.star}</p>
+              <p>{props.reviewNum}</p>
               <Star />
-              <p>({props.people})</p>
+              <p>({props.peopleReviewed})</p>
             </span>
 
             <span

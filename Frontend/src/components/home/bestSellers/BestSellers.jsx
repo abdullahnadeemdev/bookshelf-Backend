@@ -19,7 +19,6 @@ const BestSellers = () => {
   useEffect(() => {
     getBooks();
   }, []);
-  console.log("books", books);
   const booksToDisplay = useMemo(() => {
     return books.slice(0, 8);
   }, [books]);
