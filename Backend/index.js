@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
 PORT = 8000;
+
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
+const userRoutes = require("./routes/user");
+
 const { connectDB } = require("./connection");
 const cors = require("cors");
 
@@ -16,6 +19,7 @@ app.use("/images", express.static("public/images"));
 
 app.use("/products/books", bookRoutes);
 app.use("/author", authorRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, (req, res) => {
   console.log("I am connected at ", PORT);
