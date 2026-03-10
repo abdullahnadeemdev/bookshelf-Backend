@@ -6,31 +6,30 @@ import { login } from "../../redux/features/loginSlice";
 import { addEmailCart } from "../../redux/features/cartSlice";
 import { addEmailBookmark } from "../../redux/features/bookMarkSlice";
 import { Logo } from "../../assets/icons/Logo";
+import axios from "axios";
 
 const Login = () => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state?.cart?.cartItems) || [];
   const books = useSelector((state) => state?.book?.items) || [];
-  const userList = useSelector((state) => state?.auth?.userList) || [];
-
-  // console.log("cartItems", cartItems);
+  // const userList = useSelector((state) => state?.auth?.userList) || [];
 
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
     email: "",
-    pw: "",
+    password: "",
   });
 
   const [error, setError] = useState({
     email: "",
-    pw: "",
+    password: "",
     user: "",
   });
 
   const validation = () => {
-    let tempErrors = { email: "", pw: "", user: "" };
+    let tempErrors = { email: "", password: "", user: "" };
     let isValid = true;
 
     if (!values.email) {
@@ -38,27 +37,28 @@ const Login = () => {
       isValid = false;
     }
 
-    if (!values.pw) {
-      tempErrors.pw = "Password is empty";
+    if (!values.password) {
+      tempErrors.password = "Password is empty";
       isValid = false;
     }
 
-    if (values.email && values.pw) {
-      const userCheck = userList.some(
-        (item) => item.email === values.email && item.pw === values.pw,
-      );
+    // if (values.email && values.password) {
+    //   const userCheck = userList.some(
+    //     (item) =>
+    //       item.email === values.email && item.password === values.password,
+    //   );
 
-      if (!userCheck) {
-        tempErrors.user = "User not found or wrong password";
-        isValid = false;
-      }
-    }
+    //   if (!userCheck) {
+    //     tempErrors.user = "User not found or wrong password";
+    //     isValid = false;
+    //   }
+    // }
 
     setError(tempErrors);
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validation()) {
@@ -69,13 +69,17 @@ const Login = () => {
       if (books?.length > 0) {
         dispatch(addEmailBookmark(values.email));
       }
-      dispatch(login({ email: values.email, pw: values.pw }));
-
-      // navigate("/books");
-      // setError({
-      //   ...error,
-      //   pw: "Wrong user password",
-      // });
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/user/login",
+          values,
+        );
+        dispatch(login({ res: response.data }));
+        console.log("values sent", response.data);
+        navigate("/");
+      } catch (err) {
+        console.log("error logging in", err);
+      }
     } else {
     }
   };
@@ -134,14 +138,16 @@ const Login = () => {
               <input
                 type="password"
                 className={`border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg ${
-                  error.pw ? "border-red" : "border-chineseViolet"
+                  error.password ? "border-red" : "border-chineseViolet"
                 }`}
                 placeholder="Password"
-                name="pw"
-                value={values.pw}
+                name="password"
+                value={values.password}
                 onChange={handleChange}
               />
-              {error?.pw && <p className="text-red text-start ">{error.pw}</p>}
+              {error?.password && (
+                <p className="text-red text-start ">{error.password}</p>
+              )}
             </div>
 
             <NavLink

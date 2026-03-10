@@ -4,23 +4,23 @@ import Button from "../../components/shared/button/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../redux/features/loginSlice";
 import { Logo } from "../../assets/icons/Logo";
+import axios from "axios";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const dataArr = useSelector((state) => state?.auth?.userList) || [];
 
   const [values, setValues] = useState({
     name: "",
     isLogin: false,
     email: "",
-    pw: "",
+    password: "",
     petName: "",
   });
   const [error, setError] = useState({
     name: "",
     email: "",
-    pw: "",
+    password: "",
     petName: "",
   });
 
@@ -28,12 +28,12 @@ const SignUp = (props) => {
     let errors = {
       name: "",
       email: "",
-      pw: "",
+      password: "",
       petName: "",
     };
     // ^[a-zA-Z0-9_.±]+@+[a-zA-Z0-9-]+.+[a-zA-Z0-9-.]+$
     const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    const pwSyntax = /^(?=.*[A-Z]).{4,}$/;
+    const passwordSyntax = /^(?=.*[A-Z]).{4,}$/;
     if (!values.name) {
       setError((prev) => ({
         ...prev,
@@ -51,7 +51,7 @@ const SignUp = (props) => {
     }
 
     const valueEmail = values.email;
-    const valuePassword = values.pw;
+    const valuePassword = values.password;
 
     if (!valueEmail.match(pattern)) {
       setError((prev) => ({
@@ -75,20 +75,20 @@ const SignUp = (props) => {
       }));
       errors.email = "Email already taken";
     }
-    if (!values.pw) {
+    if (!values.password) {
       setError((prev) => ({
         ...prev,
-        pw: "Password is empty",
+        password: "Password is empty",
       }));
-      errors.pw = "Password is empty";
+      errors.password = "Password is empty";
     }
 
-    if (!valuePassword.match(pwSyntax)) {
+    if (!valuePassword.match(passwordSyntax)) {
       setError((prev) => ({
         ...prev,
-        pw: "Weak password",
+        password: "Weak password",
       }));
-      errors.pw = "Weak password";
+      errors.password = "Weak password";
     }
     if (!values.petName) {
       setError((prev) => ({
@@ -101,12 +101,12 @@ const SignUp = (props) => {
     if (
       errors.name ||
       errors.email ||
-      errors.pw ||
+      errors.password ||
       errors.petName ||
       !values.name ||
       !values.email ||
       !values.petName ||
-      !values.pw
+      !values.password
     ) {
       return false;
     } else {
@@ -114,14 +114,22 @@ const SignUp = (props) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validation()) {
-      dispatch(signUp(values));
-      navigate("/login", { replace: true });
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/user/signup",
+          values,
+        );
+        console.log("data sent", response);
+        navigate("/login", { replace: true });
+      } catch (err) {
+        console.log("error adding users", err);
+      }
     } else {
       console.log("error", error);
-      console.log("ingo", values);
+      console.log("singup error", values);
     }
   };
 
@@ -186,11 +194,13 @@ const SignUp = (props) => {
                 type="password"
                 className="border block pl-1 indent-2 mx-auto rounded-lg border-chineseViolet w-full h-10 text-lg"
                 placeholder="Should contain 4 characters"
-                name="pw"
-                value={values.pw}
+                name="password"
+                value={values.password}
                 onChange={handleChange}
               />
-              {error?.pw && <p className="text-red text-start">{error.pw}</p>}
+              {error?.password && (
+                <p className="text-red text-start">{error.password}</p>
+              )}
             </div>
             <div className="mb-8 ">
               <input

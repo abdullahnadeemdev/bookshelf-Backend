@@ -19,8 +19,8 @@ const handleLogin = async (req, res) => {
       password: body.password,
     });
     if (!userFound) return res.status(404).json({ msg: "user not found " });
-    const token = setUser(userFound);
-    res.cookie = ("uid", token);
+    // const token = setUser(userFound);
+    // res.cookie("uid", token);
     return res.json(userFound); //// this to redirect to the home page
   } catch (err) {
     console.log("caught an error", err);

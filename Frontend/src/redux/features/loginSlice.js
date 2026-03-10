@@ -9,23 +9,24 @@ export const loginSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    signUp: (state, action) => {
-      state.userList.push(action.payload);
-    },
     login: (state, action) => {
-      const { email, pw } = action.payload;
-      const userData = state.userList?.find((item) => item?.email === email);
+      const { email, password } = action.payload?.res;
+      const data = {
+        email: email,
+        password: password,
+      };
+      // const userData = state.userList?.find((item) => item?.email === email);
 
-      if (!userData) {
-        console.log("show toast user not found");
-      }
+      // if (!userData) {
+      //   console.log("show toast user not found");
+      // }
 
-      if (userData && !userData.pw === pw) {
-        console.log("show toast invalid creds");
-      }
+      // if (userData && !userData.pw === pw) {
+      //   console.log("show toast invalid creds");
+      // }
 
-      if (userData) {
-        state.user = userData;
+      if (data.email && data.password) {
+        state.user = data;
       } else {
         state.user = null;
       }
@@ -37,7 +38,7 @@ export const loginSlice = createSlice({
       const { pet, userPw } = action.payload;
 
       const userChange = state?.userList.find(
-        (item) => item.petName?.toLowerCase() === pet
+        (item) => item.petName?.toLowerCase() === pet,
       );
 
       if (userChange) {
