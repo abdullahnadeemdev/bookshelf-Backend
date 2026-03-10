@@ -1,5 +1,6 @@
 const User = require("../models/user");
-var jwt = require("jsonwebtoken");
+var { v4: uuidv4 } = require("uuid");
+const { setUser } = require("../service/auth");
 
 const handleGetUser = async (req, res) => {
   try {
@@ -13,9 +14,14 @@ const handleGetUser = async (req, res) => {
 const handleLogin = async (req, res) => {
   const body = req.body;
   try {
-    const userFound = await User.findOne({ email: req.body.email });
-    if (!userFound) return;
-    return res.json(userFound);
+    const userFound = await User.findOne({
+      email: body.email,
+      password: body.password,
+    });
+    if (!userFound) return res.status(404).json({ msg: "user not found " });
+    const token = setUser(userFound);
+    res.cookie = ("uid", token);
+    return res.json(userFound); //// this to redirect to the home page
   } catch (err) {
     console.log("caught an error", err);
     return res.status(400).json(err);
@@ -34,7 +40,7 @@ const handleSignup = async (req, res) => {
 
     return res
       .status(201)
-      .json({ msg: "User added successfully", id: result._id });
+      .json({ msg: "User added successfully", id: result._id }); // return to Login if user is created correctly
   } catch (err) {
     console.log("caught an error", err);
     return res.status(400).json(err);

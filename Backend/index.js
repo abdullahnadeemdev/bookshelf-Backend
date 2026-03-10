@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 PORT = 8000;
+const jwt = require("jsonwebtoken");
 
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
