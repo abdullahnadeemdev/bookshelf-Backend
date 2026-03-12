@@ -1,8 +1,8 @@
+const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
-PORT = process.env.PORT || 3100;
+PORT = process.env.PORT || 8000;
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
 
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
