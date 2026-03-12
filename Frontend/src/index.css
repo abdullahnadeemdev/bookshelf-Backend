@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --color-yellow:#f4ce47;
+  --color-darkYellow:#f4ba30;
+  --color-blackC:#2A2C2E;
+  --color-whiteBg:#f6f4f0;
+  --color-lGrayBg:#f0f0f0;
+  --color-greyText:#bcbcbc;
+  --color-darkGreyText:#676869;
+  --color-lightGrayBg:#3b3d3f;
+  --color-grayBg:#2a2c2e;
+  --color-searchIcon:#1A1B1D;
+  --color-darkGrey:#202020;
+    --color-red:oklch(57.7% 0.245 27.325);
+
+  
+  --font-Inter:'Inter',sans-serif;
+  /* 480 */
+  --breakpoint-xs:26.56rem;
+
+}
+.heroHeading{
+    font-size: calc(min(82px, 15px + (87 - 20) * ((100vw - 320px) / (1440 - 320))));
+}
