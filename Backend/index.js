@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
-PORT = 8000;
+PORT = process.env.PORT || 3100;
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
 
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
@@ -10,7 +11,7 @@ const userRoutes = require("./routes/user");
 const { connectDB } = require("./connection");
 const cors = require("cors");
 
-connectDB("mongodb://localhost:27017/BookshelfDb")
+connectDB(process.env.MONGODB_URL)
   .then(() => console.log("Connected to mongoDb"))
   .catch((err) => console.log("database not available", err));
 
