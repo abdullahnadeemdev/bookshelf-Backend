@@ -97,7 +97,7 @@ const Login = () => {
   };
   return (
     <div className="w-full flex items-center h-screen ">
-      <div className=" sm:max-w-[500px] m-4 border rounded-[20px] flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+      <div className=" sm:max-w-125 m-4 border rounded-[20px] flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
         <div className="text-center w-full p-2 relative flex flex-col">
           <NavLink
             to="/"
