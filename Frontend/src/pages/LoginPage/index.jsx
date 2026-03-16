@@ -74,9 +74,10 @@ const Login = () => {
           "http://localhost:8000/user/login",
           values,
         );
-        dispatch(login({ res: response.data }));
-        console.log("values sent", response.data);
-        navigate("/");
+        // console.log("values", values);
+        // dispatch(login({ res: response.data }));
+        // console.log("response sent", response.data);
+        // navigate("/");
       } catch (err) {
         console.log("error logging in", err);
       }

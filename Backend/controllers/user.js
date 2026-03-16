@@ -1,6 +1,6 @@
 const User = require("../models/user");
 var { v4: uuidv4 } = require("uuid");
-const { setUser } = require("../service/auth");
+const { setUser } = require("../middleware/auth");
 
 const handleGetUser = async (req, res) => {
   try {
@@ -19,9 +19,15 @@ const handleLogin = async (req, res) => {
       password: body.password,
     });
     if (!userFound) return res.status(404).json({ msg: "user not found " });
-    // const token = setUser(userFound);
-    // res.cookie("uid", token);
-    return res.json(userFound); //// this to redirect to the home page
+    console.log("userFound", userFound);
+    const token = setUser({
+      email: userFound.email,
+      password: userFound.password,
+      name: userFound.name,
+    });
+    console.log("token", token);
+    res.cookie("token", token);
+    return res.json(token); //// this to redirect to the home page
   } catch (err) {
     console.log("caught an error", err);
     return res.status(400).json(err);
@@ -38,9 +44,14 @@ const handleSignup = async (req, res) => {
       petName: body.petName,
     });
 
-    return res
-      .status(201)
-      .json({ msg: "User added successfully", id: result._id }); // return to Login if user is created correctly
+    const token = setUser({
+      name: body.name,
+      email: body.email,
+      password: body.password,
+      petName: body.petName,
+    });
+
+    return res.status(201).cookie("token", token); // return to Login if user is created correctly
   } catch (err) {
     console.log("caught an error", err);
     return res.status(400).json(err);
