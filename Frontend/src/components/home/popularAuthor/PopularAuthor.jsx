@@ -16,9 +16,9 @@ const PopularAuthor = () => {
     getAuthors();
   }, []);
   const array = useMemo(() => author.slice(1, 9), [author]);
-  console.log("i am autroirs array", author);
+  console.log("i am author array", author);
   return (
-    <div className="h-fit  max-w-[1440px] px-0.5 mx-auto" id="authors">
+    <div className="h-fit  max-w-360 px-0.5 mx-auto" id="authors">
       <h1 className="font-base text-xl sm:text-2xl lg:text-4xl py-10 pl-6">
         POPULAR AUTHORS
       </h1>
