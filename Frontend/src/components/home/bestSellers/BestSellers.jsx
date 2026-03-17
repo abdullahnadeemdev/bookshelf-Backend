@@ -24,7 +24,7 @@ const BestSellers = () => {
   }, [books]);
 
   return (
-    <div className="h-fit py-10 max-w-[1430px] w-full px-4">
+    <div className="h-fit py-10 max-w-357.5 w-full px-4">
       <h1 className="font-semibold text-xl sm:text-2xl lg:text-4xl mb-6">
         BESTSELLERS
       </h1>
@@ -36,7 +36,7 @@ const BestSellers = () => {
 
         <div
           onClick={() => navigate("/books")}
-          className="h-full min-h-[220px] bg-yellow rounded-2xl text-black 
+          className="h-full min-h-55 bg-yellow rounded-2xl text-black 
                      flex items-center justify-center text-2xl font-semibold 
                      cursor-pointer hover:scale-[1.02] transition"
         >

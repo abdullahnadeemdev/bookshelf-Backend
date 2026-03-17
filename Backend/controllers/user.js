@@ -20,10 +20,7 @@ const handleLogin = async (req, res) => {
 
     if (!userFound) return res.status(404).json({ msg: "user not found " });
 
-    const token = setUserID({
-      email: userFound.email,
-      password: userFound.password,
-    });
+    const token = setUserID(userFound);
     console.log("token", token);
 
     res.cookie("token", token);
