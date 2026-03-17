@@ -5,6 +5,7 @@ PORT = process.env.PORT || 8000;
 // const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const { checkAuthentication } = require("./middleware/authentication");
+const { restrictToLoginUserOnly } = require("./middleware/auth");
 
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
@@ -17,10 +18,15 @@ connectDB(process.env.MONGODB_URL)
   .then(() => console.log("Connected to mongoDb"))
   .catch((err) => console.log("database not available", err));
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(cookieParser());
-app.use(checkAuthentication("token"));
-app.use(cors());
+// app.use(checkAuthentication("token"));
 app.use("/images", express.static("public/images"));
 
 app.use("/products/books", bookRoutes);

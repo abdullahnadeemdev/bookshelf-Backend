@@ -73,11 +73,12 @@ const Login = () => {
         const response = await axios.post(
           "http://localhost:8000/user/login",
           values,
+          { withCredentials: true },
         );
-        // console.log("values", values);
+        console.log("values", values);
         // dispatch(login({ res: response.data }));
         // console.log("response sent", response.data);
-        // navigate("/");
+        navigate("/");
       } catch (err) {
         console.log("error logging in", err);
       }

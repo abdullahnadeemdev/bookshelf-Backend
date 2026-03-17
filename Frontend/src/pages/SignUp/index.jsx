@@ -146,7 +146,7 @@ const SignUp = (props) => {
   };
   return (
     <div className="w-full flex items-center h-screen">
-      <div className=" sm:max-w-[500px] m-4 border rounded-[20px] relative flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
+      <div className=" sm:max-w-125 m-4 border rounded-[20px] relative flex  justify-center  bg-blackC p-4 xs:p-6 sm:p-10 md:p-16 mx-auto">
         <NavLink
           to="/"
           className="absolute -top-10 w-max  lg:-top-10 xl:-top-12  lg:ml-2  "
