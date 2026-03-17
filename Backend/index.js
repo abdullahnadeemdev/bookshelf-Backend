@@ -2,10 +2,8 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
 PORT = process.env.PORT || 8000;
-// const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const { checkAuthentication } = require("./middleware/authentication");
-const { restrictToLoginUserOnly } = require("./middleware/auth");
 
 const bookRoutes = require("./routes/books");
 const authorRoutes = require("./routes/author");
@@ -26,7 +24,6 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
-// app.use(checkAuthentication("token"));
 app.use("/images", express.static("public/images"));
 
 app.use("/products/books", bookRoutes);
